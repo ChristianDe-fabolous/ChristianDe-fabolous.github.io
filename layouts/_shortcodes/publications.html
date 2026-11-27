@@ -1,0 +1,27 @@
+{{- /* Renders data/publications.yaml grouped by year, newest first.
+       Your own name (params.name) is shown in bold. */ -}}
+{{- with site.Data.publications }}
+{{- $pubs := sort . "year" "desc" }}
+{{- $me := site.Params.name }}
+{{- $years := slice }}
+{{- range $pubs }}{{ $years = $years | append .year }}{{ end }}
+{{- range uniq $years }}
+<h2 class="pub-year">{{ . }}</h2>
+<ol class="pubs">
+  {{- range where $pubs "year" . }}
+  <li>
+    <span class="pub-title">{{ .title }}</span><br>
+    <span class="pub-authors">
+      {{- range $i, $a := .authors }}{{ if $i }}, {{ end }}{{ if eq $a $me }}<strong>{{ $a }}</strong>{{ else }}{{ $a }}{{ end }}{{ end -}}
+    </span><br>
+    <span class="pub-venue"><em>{{ .venue }}</em>{{ with .note }} · <span class="pub-note">{{ . }}</span>{{ end }}</span>
+    {{- with .links }}
+    <span class="pub-links">
+      {{- range . }} [<a href="{{ .url | relURL }}">{{ .name }}</a>]{{ end -}}
+    </span>
+    {{- end }}
+  </li>
+  {{- end }}
+</ol>
+{{- end }}
+{{- end }}

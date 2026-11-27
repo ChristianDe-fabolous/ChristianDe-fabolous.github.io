@@ -1,0 +1,16 @@
+# One entry per paper. Newest year is shown first.
+# Link urls: full URLs (https://...) or local files without a leading slash,
+# e.g. "files/my-paper.pdf" for static/files/my-paper.pdf.
+
+- title: "Relative Geometry of Neural Forecasters: Linking Accuracy and Alignment in Learned Latent Geometry"
+  authors: ["Deniz Kucukahmetler", "Maximilian Jean Hemmann", "Julian Mosig von Aehrenfeld", "Maximilian Amthor", "Christian Deubel", "Nico Scherf", "Diaaeldin Taha"]
+  venue: "Transactions on Machine Learning Research (TMLR)"
+  year: 2026
+  links:
+    - { name: "arXiv", url: "https://arxiv.org/abs/2602.15676" }
+
+# TODO: Google Scholar cuts this author list off after "C Deubel". Complete it.
+- title: "A Comparative Empirical Study of Relative Embedding Alignment in Neural Dynamical System Forecasters"
+  authors: ["Deniz Kucukahmetler", "Maximilian Jean Hemmann", "Julian Mosig von Aehrenfeld", "Maximilian Amthor", "Christian Deubel", "et al."]
+  venue: "NeurIPS 2025 Workshop on Symmetry and Geometry in Neural Representations"
+  year: 2025

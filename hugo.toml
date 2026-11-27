@@ -1,0 +1,51 @@
+baseURL = "https://example.com/"   # change to your real URL
+title = "Christian Deubel"
+disableKinds = ["taxonomy", "term"]
+enableRobotsTXT = true
+
+[params]
+  name = "Christian Deubel"
+  role = "Master's Student"
+  affiliation = "ETH Zurich"
+  # Written in obfuscated form to reduce scraping by spam bots.
+  email = "cdeubel [at] ethz [dot] ch"
+  description = "Personal website of Christian Deubel, Master's student at ETH Zurich."
+  # Put a square photo at static/img/profile.jpg and uncomment:
+  # photo = "img/profile.jpg"
+
+  [[params.social]]
+    name = "Google Scholar"
+    url = "https://scholar.google.com/citations?user=9kbHHVgAAAAJ&hl=en"
+  # Add more links like this:
+  # [[params.social]]
+  #   name = "GitHub"
+  #   url = "https://github.com/<username>"
+  # [[params.social]]
+  #   name = "CV"
+  #   url = "files/cv.pdf"   # put the file at static/files/cv.pdf
+
+[[menus.main]]
+  name = "About"
+  pageRef = "/"
+  weight = 1
+[[menus.main]]
+  name = "Research"
+  pageRef = "/research"
+  weight = 2
+[[menus.main]]
+  name = "Blog"
+  pageRef = "/blog"
+  weight = 3
+
+[outputs]
+  home = ["html"]
+  section = ["html", "rss"]
+  page = ["html"]
+
+[markup.goldmark.renderer]
+  # Never render raw HTML embedded in Markdown (keeps content XSS-free).
+  unsafe = false
+
+[markup.highlight]
+  # Use CSS classes instead of inline styles so the strict CSP works.
+  noClasses = false

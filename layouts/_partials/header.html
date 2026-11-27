@@ -1,0 +1,12 @@
+<header class="site-header">
+  <a class="site-title" href="{{ "/" | relURL }}">{{ site.Title }}</a>
+  <nav>
+    {{- $here := .RelPermalink }}
+    {{- $root := "/" | relURL }}
+    {{- range site.Menus.main }}
+      {{- $active := or (eq $here .URL) (and (ne .URL $root) (hasPrefix $here .URL)) }}
+      <a href="{{ .URL }}"{{ if $active }} aria-current="page"{{ end }}>{{ .Name }}</a>
+    {{- end }}
+    <button id="theme-toggle" class="theme-toggle" type="button" hidden>☾</button>
+  </nav>
+</header>

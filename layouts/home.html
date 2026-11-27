@@ -1,0 +1,25 @@
+{{ define "main" }}
+<section class="profile">
+  {{- with site.Params.photo }}
+  <img class="photo" src="{{ . | relURL }}" alt="Photo of {{ site.Params.name }}" width="160" height="160">
+  {{- end }}
+  <div>
+    <h1>{{ site.Params.name }}</h1>
+    <p class="role">{{ site.Params.role }}<br>{{ site.Params.affiliation }}</p>
+    {{- with site.Params.email }}<p class="contact">{{ . }}</p>{{ end }}
+    <p class="links">
+      {{- range $i, $l := site.Params.social }}{{ if $i }} · {{ end }}<a href="{{ $l.url | relURL }}">{{ $l.name }}</a>{{ end -}}
+    </p>
+  </div>
+</section>
+
+{{ .Content }}
+
+{{- $posts := (where site.RegularPages "Section" "blog").ByDate.Reverse }}
+{{- with first 3 $posts }}
+<h2>Recent posts</h2>
+<ul class="post-list">
+  {{- range . }}{{ partial "post-item.html" . }}{{ end }}
+</ul>
+{{- end }}
+{{ end }}
